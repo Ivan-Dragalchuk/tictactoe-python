@@ -5,7 +5,13 @@ from kivy.uix.button import Button
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
+from kivy.core.text import LabelBase
 
+
+LabelBase.register(
+    name="Inter",
+    fn_regular="tictactoe-python\Inter_28pt-Medium.woff2",  
+)
 import json
 import threading
 import socket
@@ -58,6 +64,7 @@ class MenuScreen(Screen):
         self.app = App.get_running_app()
     
     def start_game_query(self):
+        self.manager.current = 'game_screen'
         msg = {
             "type":"create_or_join",
         }

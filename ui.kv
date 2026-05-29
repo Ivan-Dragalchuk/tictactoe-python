@@ -1,54 +1,194 @@
-<MenuScreen>:
-    Button:
-        text: "Play"
-        pos_hint: {"center_x":0.5, "center_y":0.5}
-
 <GameScreen>:
-    Label:
-        canvas:
+    canvas: 
+        Color: 
+            rgb: (0.72, 0.08, 0.12)
+        Rectangle: 
+            size: self.size
+            pos: self.pos
+    name: 'game_screen'
+    BoxLayout:
+        canvas.before: 
             Color:
-                rgba: (0, 0.3, 0.4,1)
-            Rectangle: 
-                size:self.size
-                pos:self.pos
-        id:lbl_turn
-        text:"Turn: X"
-        font_size: 25
-        size_hint:[0.4,0.2]
-        pos_hint: {"x":0.05,"top":0.95}
-    Label:
-        canvas:
+                rgba: (0, 0, 0, 0.35)    
+            BoxShadow:
+                pos: self.pos
+                size: self.size
+                blur_radius: 20   
+                offset: (-10, -5) 
+                border_radius: [0,20,20,20]
             Color:
-                rgba: (0.2, 0, 0.4,1)
-            Rectangle: 
-                size:self.size
-                pos:self.pos
-        id:lbl_you
-        text: "You X"
-        font_size: 25
-        size_hint:[0.4,0.2]
-        pos_hint: {"x":0.5, "top":0.95}
+                rgba: (1, 1, 1, 1)  
+            BoxShadow:
+                pos: self.pos
+                size: self.size
+                blur_radius: 7
+                border_radius: [0,19,19,19]
+                
+            Color:
+                rgb: (1, 0.4, 0)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [0,20,20,20]
+        orientation: 'vertical'
+        size_hint_x: 0.3
+        size_hint_y: 0.2
+        pos_hint: {"center_x":0.17, "center_y":0.85}
+        Label:
+            color: (0,0,0,1)
+            font_size: 35
+            text:"Player X"
+        BoxLayout:
+            padding: ['20px','0px','0px','0px']
+            Label:
+                color: (0,0,0,1)
+                font_size: 35
+                text:"SCORE:"
+            Label:
+                font_size: 45
+                text:"0"
+
+    BoxLayout:
+        canvas.before: 
+            Color:
+                rgba: (0, 0, 0, 0.35)      
+            BoxShadow:
+                pos: self.pos
+                size: self.size
+                blur_radius: 20      
+                offset: (-10, -5)   
+                border_radius: [0,0,20,20]
+            Color:
+                rgba: (1, 1, 1, 1)    
+            BoxShadow:
+                pos: self.pos
+                size: self.size
+                blur_radius: 7
+                border_radius: [0,0,19,19]
+                
+            Color:
+                rgb: (1, 0.4, 0)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [0,0,20,20]
+        size_hint_x: 0.2
+        size_hint_y: 0.1
+        pos_hint: {"center_x":0.5, "center_y":0.96}
+        Label:
+            color: (1,1,1,1)
+            font_size: 35
+            text:" turn:"
+        Label:
+            color: (1,1,1,1)
+            font_size: 40
+            text:"X"
+
+
+    BoxLayout:
+        canvas.before: 
+            Color:
+                rgba: (0, 0, 0, 0.35)      
+            BoxShadow:
+                pos: self.pos
+                size: self.size
+                blur_radius: 20      
+                offset: (-10, -5)   
+                border_radius: [20,0,20,20]
+            Color:
+                rgba: (1, 1, 1, 1)    
+            BoxShadow:
+                pos: self.pos
+                size: self.size
+                blur_radius: 7
+                border_radius: [19,0,19,19]
+                
+            Color:
+                rgb: (1, 0.4, 0)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [20,0,20,20]
+        orientation: 'vertical'
+        size_hint_x: 0.3
+        size_hint_y: 0.2
+        pos_hint: {"center_x":0.83, "center_y":0.85}
+        Label:
+            color: (0,0,0,1)
+            font_size: 35
+            text:"Player O"
+        BoxLayout:
+            padding: ['20px','0px','0px','0px']
+            Label:
+                color: (0,0,0,1)
+                font_size: 35
+                text:"SCORE:"
+            Label:
+                font_size: 45
+                text:"0"
     
     Button:
         text: "Leave"
         font_size: 20
-        size_hint: (0.2,0.2)
-        pos_hint: {"right":0.95, "top":0.95}
-    
+        background_normal: ""
+        size_hint: (0.2,0.05)
+        pos_hint: {"center_x":0.5, "top":0.07}
+        canvas.before: 
+            Color:
+                rgba: (0, 0, 0, 0.35)    
+            BoxShadow:
+                pos: self.pos
+                size: self.size
+                blur_radius: 20   
+                offset: (-10, -5) 
+                border_radius: [20,20,20,20]
+            Color:
+                rgb: (0.8, 0.40, 0)
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20]
     GridLayout:
         canvas:
             Color:
-                rgba: (0.2, 0.3, 0.4,1)
-            Rectangle: 
-                size:self.size
-                pos:self.pos
-        size_hint_x: 0.6
-        size_hint_y: 0.4
-
-        pos_hint: {"center_x":0.5, "top":0.75}
+                rgb: (0.90, 0.75, 0.60)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [20]
+        size_hint_x: 0.5
+        size_hint_y: 0.55
+        spacing: '15px'
+        padding: '10px'
+        pos_hint: {"center_x":0.5, "top":0.66}
         id:grid_board
 
+
+<Button>:
+    text: "-"
+    font_size: "60px"
+    background_normal: ""
+    background_color: 0,0,0,0
+    color: 1,1,1,1
+
+    canvas.before:
+        Color:
+            rgb: (0.8, 0.40, 0)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20]
+
+<Label>:
+    font_name: "Inter"  
+
 <MenuScreen>:
+    canvas: 
+        Color: 
+            rgb: (0.72, 0.08, 0.12)
+        Rectangle: 
+            size: self.size
+            pos: self.pos
     Button:
         pos_hint: {"center_x":0.5, "center_y":0.5}
         text: "PLAY"
